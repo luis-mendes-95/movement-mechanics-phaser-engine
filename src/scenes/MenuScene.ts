@@ -27,10 +27,10 @@ export class MenuScene extends Phaser.Scene{
 
 
         //create audio
-        this.sound.pauseOnBlur = false;
-        this.sound.play("title_music", {
-            loop: true
-        })
+        //this.sound.pauseOnBlur = false;
+        //this.sound.play("title_music", {
+        //    loop: true
+        //})
 
 
         //create animation for a sprite
@@ -45,6 +45,7 @@ export class MenuScene extends Phaser.Scene{
                 
         //set a invisible sprite to visible when hovering this element
         startButton.setInteractive();
+        //event pointerover (mouse in)
         startButton.on("pointerover", ()=>{
             hoverSprite.setVisible(true);
             hoverSprite.play("fly");
@@ -52,11 +53,13 @@ export class MenuScene extends Phaser.Scene{
             hoverSprite.y = startButton.y + 15;
 
         })
+        //event pointerout (mouse out)
         startButton.on("pointerout", ()=>{
             hoverSprite.setVisible(false);
         })
+        //event pointerup (clicked)
         startButton.on("pointerup", ()=>{
-            console.log("âp")
+            this.scene.start(CST.SCENES.PLAY)
         })
 
 
